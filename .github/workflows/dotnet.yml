@@ -1,25 +1,29 @@
-name: Sheenam Build Pipeline
+name: .NET
+
 on:
   push:
-    branches:
-    - main
+    branches: [ "main" ]
   pull_request:
-    branches:
-    - main
+    branches: [ "main" ]
+
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Check out
-      uses: actions/checkout@v2
-    - name: Setup .Net
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.100-rc.1.21463.6
-        include-prerelease: true
-    - name: Restore
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore Sheenam/Sheenam.sln
+
+      - name: Build solution
+        run: dotnet build Sheenam/Sheenam.sln --no-restore --configuration Release
+
+      - name: Run tests
+        run: dotnet test Sheenam/Sheenam.sln --no-build --verbosity normal
