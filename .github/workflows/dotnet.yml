@@ -1,4 +1,4 @@
-name: .NET
+name: Sheenam Build Pipeline
 
 on:
   push:
