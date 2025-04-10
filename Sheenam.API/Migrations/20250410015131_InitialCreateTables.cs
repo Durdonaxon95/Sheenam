@@ -18,7 +18,7 @@ namespace Sheenam.API.Migrations
         {
             migrationBuilder.CreateTable(
                 name: "Guests",
-                columns: table => new
+                columns: static table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
