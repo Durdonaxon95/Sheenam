@@ -23,7 +23,7 @@ namespace Sheenam.API.Migrations
                 .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.ForSqlServerUseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Sheenam.Api.Models.Foundation.Guests.Guest", b =>
                 {
