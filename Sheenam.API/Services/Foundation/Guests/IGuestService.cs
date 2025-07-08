@@ -3,14 +3,13 @@
 //FreeTo Use To Find Comfort and Peace
 //=================================================
 
-using Xunit;
+using System.Threading.Tasks;
+using Sheenam.Api.Models.Foundation.Guests;
 
-namespace Sheenam.Api.Tests.Unit
+namespace Sheenam.API.Services.Foundation.Guests
 {
-    public class DeleteMe
+    public interface IGuestService
     {
-        [Fact]
-        public void ShouldBeTrue() =>
-            Assert.True(true);
+        ValueTask<Guest> AddGuestAsync(Guest guest);
     }
 }
